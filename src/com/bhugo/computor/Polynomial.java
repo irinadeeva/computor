@@ -1,6 +1,9 @@
 package com.bhugo.computor;
 
 public class Polynomial {
-    private int[] coef;
-    private int degree;
+    private float coefficient = 0;
+
+    Polynomial(float coefficient) {
+        this.coefficient += coefficient;
+    }
 }
