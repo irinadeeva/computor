@@ -24,24 +24,16 @@ public class Computor {
     private static String manageFreeFormEntrie(String equation){
         if (equation.startsWith("X"))
             equation = "1 * " + equation;
-        if (equation.contains("= X"))
-            equation = equation.replaceAll("= X", "= 1 * X");
-        if (equation.contains("+ X"))
-            equation = equation.replaceAll("\\+ X", "+ 1 * X");
-        if (equation.contains("- X"))
-            equation = equation.replaceAll("- X", "- 1 * X");
-        if (equation.contains("-X"))
-            equation = equation.replaceAll("-X", "- 1 * X");
-        if (equation.contains("X +"))
-            equation = equation.replaceAll("X \\+", "X^1 +");
-        if (equation.contains("X -"))
-            equation = equation.replaceAll("X -", "X^1 -");
-        if (equation.contains("X-"))
-            equation = equation.replaceAll("X-", "X^1 -");
-        if (equation.contains("X ="))
-            equation = equation.replaceAll("X =", "X^1 =");
         if (equation.endsWith("X"))
             equation += "^1";
+        equation = equation.replaceAll("= X", "= 1 * X");
+        equation = equation.replaceAll("\\+ X", "+ 1 * X");
+        equation = equation.replaceAll("- X", "- 1 * X");
+        equation = equation.replaceAll("-X", "- 1 * X");
+        equation = equation.replaceAll("X \\+", "X^1 +");
+        equation = equation.replaceAll("X -", "X^1 -");
+        equation = equation.replaceAll("X-", "X^1 -");
+        equation = equation.replaceAll("X =", "X^1 =");
         return checkConstantTerm(equation);
     }
 
@@ -54,8 +46,9 @@ public class Computor {
         while (!equation.isEmpty()) {
             min = 2147483647;
             i = equation.indexOf('-');
-            if (i != -1 && i < min)
+            if (i != -1) {
                 min = i;
+            }
             i = equation.indexOf('+');
             if (i != -1 && i < min)
                 min = i;
@@ -83,7 +76,7 @@ public class Computor {
     private static void defineDegree(String s){
         int t;
 
-        while (!s.isEmpty() && s.length() > 2) {
+        while (!s.isEmpty()) {
             t = s.indexOf("^");
             s = s.substring(t + 1);
             t = s.indexOf(" ");
@@ -185,7 +178,7 @@ public class Computor {
                 }
                 break;
             case 1:
-                System.out.println("The solution is: " + (-coefficient[0]/coefficient[1]));
+                System.out.format("The solution is: %.2f\n", (-coefficient[0]/coefficient[1]));
                 break;
             case 2:
                 solveEquation();
@@ -204,7 +197,7 @@ public class Computor {
             System.out.format("%.2f\n", ((-coefficient[1]) - sqrt(determinant)) / (2 * coefficient[2]));
         } else if (determinant == 0) {
             System.out.println("Discriminant is equal to zero, the solution is:");
-            System.out.println((-coefficient[1]) / (2 * coefficient[2]));
+            System.out.format("%.2f\n", (-coefficient[1]) / (2 * coefficient[2]));
         }
         else {
             System.out.println("Determinant is less than zero, the solution are complex number and distinct:");
@@ -219,9 +212,9 @@ public class Computor {
         if (determinant == 1)
             return determinant;
 
-        double i = 0.0000001, result = 1;
+        double i = 0.01, result = 1;
         while (result <= determinant) {
-            i += 0.0000001;
+            i += 0.01;
             result = i * i;
         }
         return i;
