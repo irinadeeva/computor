@@ -11,6 +11,7 @@ The project is reqiered to write a program that solves a polynomial second or lo
 - The degree of the equation.
 - It’s solution(s) and the polarity of the discriminant if it makes sens.
 
+The usage of math lib funstions is forbbiten.
 The program expects the entry to have the right format, ie. every term respect the
 form a * x^p and exponents are organized and present. 
 
@@ -34,7 +35,8 @@ Yet, the program is able to handle an input in natural form:
 **Detailed description of the task: [computerV1.en.pdf](https://github.com/irinadeeva/computor/blob/master/docs/en.subject.pdf)**
 
 ## Usage
-Compile and run the program with the script **[run.sh](https://github.com/irinadeeva/computor/blob/master/src/run.sh)**
+Compile and run the program with the script **[run.sh](https://github.com/irinadeeva/computor/blob/master/src/run.sh)** 
+The scripts contains a lof of usage examples.
 
 For example
 ```
