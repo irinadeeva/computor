@@ -11,7 +11,7 @@ The project is reqiered to write a program that solves a polynomial second or lo
 - The degree of the equation.
 - It’s solution(s) and the polarity of the discriminant if it makes sens.
 
-The usage of math lib funstions is forbbiten.
+The usage of math lib funstions is forbidden.
 The program expects the entry to have the right format, ie. every term respect the
 form a * x^p and exponents are organized and present. 
 
